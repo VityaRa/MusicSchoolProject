@@ -1,0 +1,127 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Твоя музыкалка</title>
+    <asp:contentPlaceholder id="head" runat="server" />
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <style>
+        p {
+            margin-bottom: 0;
+        }
+        body {
+            padding: 0;
+            height: calc(100vh - 50px);
+            overflow-y: scroll;
+        }
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+            position: fixed;
+        }
+
+        .navbar-header {
+            height: 48px;
+        }
+        
+        .logo-wrapper {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo, .logo img{
+            max-width: 4rem;
+            max-height: 4rem;
+        }
+
+        .link {
+            color: black !important;
+            transition: .3s;
+        }
+
+        .link:hover {
+            transform: scale(1.05);
+            text-decoration: underline !important;
+        }
+
+        .main-content {
+            background-color: #f6f6f6;
+            margin-top: 50px;
+            height: 100%;
+        }
+
+        .body-content {
+            height: 100%;
+            margin: 0;
+            padding: 36px 60px 0 60px;
+            width: 100%;
+        }
+
+        footer {
+            padding: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <form class="main-content" runat="server">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="logo-wrapper" runat="server" href="~/">
+                        <asp:ImageButton CssClass="logo" runat="server" AlternateText="logo" ImageUrl="~/Content/music-logo.png"></asp:ImageButton>
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a class="link" runat="server" href="~/">Главная</a></li>
+                        <li><a class="link" runat="server" href="~/Schedule">Расписание</a></li>
+                        <li><a class="link" runat="server" href="~/Contact">Мероприятия</a></li>
+                    </ul>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="link" runat="server" href="~/Account/Register">Регистрация</a></li>
+                                <li><a class="link" runat="server" href="~/Account/Login">Вход</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="link" runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %>!</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <h1>
+                <%: Page.Title %> 
+            </h1>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer>
+            <div class="container center">
+                <p>&copy; <%: DateTime.Now.Year %> - Твоя музыкалка
+                </p>
+            </div>
+
+        </footer>
+    </form>
+</body>
+</html>

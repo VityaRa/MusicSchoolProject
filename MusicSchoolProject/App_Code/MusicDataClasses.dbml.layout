@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 20.25" name="MusicDataClasses">
+  <DataContextMoniker Name="/MusicDataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="a449773e-15cd-4fa8-8416-5651e09e67ac" absoluteBounds="2, 18.625, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/MusicDataClassesDataContext/discipline" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1eab08a-c79f-4f3d-94fa-249dbf888f6f" absoluteBounds="2.015, 19.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="170bbbe8-d2f3-4bf9-b5ae-2d2c1b3edf3d" absoluteBounds="3.5, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/MusicDataClassesDataContext/grade_perfomance" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5cb2ebfd-d956-4ed9-9485-1c71116e422b" absoluteBounds="3.515, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e9b777eb-f767-402d-a8dd-fce36b50f5df" absoluteBounds="0.75, 1.5, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/MusicDataClassesDataContext/grade" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bd096db4-278b-4319-b3e0-6c2c0cb6652d" absoluteBounds="0.765, 1.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="04938f85-fc1c-4cc3-91c4-9e4e2bcfaa00" absoluteBounds="0.75, 7.625, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/MusicDataClassesDataContext/group_class" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2523af75-3324-426a-b652-10e762ba8be5" absoluteBounds="0.765, 8.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1064b7d3-54de-4cfd-b6df-b3d3490745d9" absoluteBounds="3.5, 4, 2, 1.193992513020834">
+      <DataClassMoniker Name="/MusicDataClassesDataContext/group_student" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1323fca5-c892-4c0c-955a-121cb36d47c9" absoluteBounds="3.515, 4.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7ee58932-ecdb-45a9-88e3-54dcac569865" absoluteBounds="1.5, 12.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/MusicDataClassesDataContext/group" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0c7e5c0e-90c6-4d2e-8c82-c5a10f46f98e" absoluteBounds="1.5150000000000001, 12.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2c12594c-3ee2-4286-b42d-c20af4420372" absoluteBounds="3.5, 6.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/MusicDataClassesDataContext/individual_class" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f93edfe4-20b5-41b1-be55-a1a64248aa4e" absoluteBounds="3.515, 7.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b5715ae1-79a4-42c6-a502-c5d295447b3a" absoluteBounds="0.75, 3.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/MusicDataClassesDataContext/student" />
+      <nestedChildShapes>
+        <elementListCompartment Id="89700f5a-83e3-4c40-8be5-3ca85b646081" absoluteBounds="0.765, 3.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa893cbd-ea73-4cde-b4f5-7741639435c1" absoluteBounds="1.75, 15.375, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/MusicDataClassesDataContext/teacher" />
+      <nestedChildShapes>
+        <elementListCompartment Id="10954c85-1654-4bf1-922e-3c45f3a27115" absoluteBounds="1.7650000000000001, 15.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b1f6447c-5556-4cc2-abd7-9ee935eadb04" absoluteBounds="1.5, 10.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/MusicDataClassesDataContext/week_day" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c26cba80-af8e-4de9-a868-57210ef7077b" absoluteBounds="1.5150000000000001, 10.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.91429768880208); (3.04166666666667 : 1.91429768880208 : JumpStart); (3.27083333333333 : 1.91429768880208 : JumpEnd); (3.5 : 1.91429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MusicDataClassesDataContext/grade/grade_grade_perfomance" />
+      <nodes>
+        <classShapeMoniker Id="e9b777eb-f767-402d-a8dd-fce36b50f5df" />
+        <classShapeMoniker Id="170bbbe8-d2f3-4bf9-b5ae-2d2c1b3edf3d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.625); (2.84732443490112 : 7.52767556509888 : JumpStart); (3.05892556509888 : 7.31607443490112 : JumpEnd); (3.125 : 7.25); (3.125 : 1.30089684440104); (3.5 : 1.30089684440104)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MusicDataClassesDataContext/group_class/group_class_grade_perfomance" />
+      <nodes>
+        <classShapeMoniker Id="04938f85-fc1c-4cc3-91c4-9e4e2bcfaa00" />
+        <classShapeMoniker Id="170bbbe8-d2f3-4bf9-b5ae-2d2c1b3edf3d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.5 : 13.2892976888021); (1.1249995 : 13.2892976888021); (1.1249995 : 9.0112939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MusicDataClassesDataContext/group/group_group_class" />
+      <nodes>
+        <classShapeMoniker Id="7ee58932-ecdb-45a9-88e3-54dcac569865" />
+        <classShapeMoniker Id="04938f85-fc1c-4cc3-91c4-9e4e2bcfaa00" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 12.5); (2.5 : 11.8189925130208); (3.75 : 11.8189925130208); (3.75 : 9.2612939453125); (3 : 9.2612939453125); (3 : 4.59699625651042); (3.04166666666667 : 4.59699625651042 : JumpStart); (3.20833333333333 : 4.59699625651042 : JumpEnd); (3.22916666666667 : 4.59699625651042 : JumpStart); (3.39583333333333 : 4.59699625651042 : JumpEnd); (3.5 : 4.59699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MusicDataClassesDataContext/group/group_group_student" />
+      <nodes>
+        <classShapeMoniker Id="7ee58932-ecdb-45a9-88e3-54dcac569865" />
+        <classShapeMoniker Id="1064b7d3-54de-4cfd-b6df-b3d3490745d9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.56314281510417 : 6.75); (3.3125 : 6.49935718489583); (3.3125 : 2.51609537760417); (3.5 : 2.32859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MusicDataClassesDataContext/individual_class/individual_class_grade_perfomance" />
+      <nodes>
+        <classShapeMoniker Id="2c12594c-3ee2-4286-b42d-c20af4420372" />
+        <classShapeMoniker Id="170bbbe8-d2f3-4bf9-b5ae-2d2c1b3edf3d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.56153746153846); (3.06607443490112 : 3.24546302663734 : JumpStart); (3.18392556509888 : 3.12761189643958 : JumpEnd); (3.1875 : 3.12403746153846); (3.1875 : 1.60759726660156); (3.5 : 1.60759726660156)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MusicDataClassesDataContext/student/student_grade_perfomance" />
+      <nodes>
+        <classShapeMoniker Id="b5715ae1-79a4-42c6-a502-c5d295447b3a" />
+        <classShapeMoniker Id="170bbbe8-d2f3-4bf9-b5ae-2d2c1b3edf3d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.23599812825521); (3.04166666666667 : 4.23599812825521 : JumpStart); (3.20833333333333 : 4.23599812825521 : JumpEnd); (3.22916666666667 : 4.23599812825521 : JumpStart); (3.39583333333333 : 4.23599812825521 : JumpEnd); (3.5 : 4.23599812825521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MusicDataClassesDataContext/student/student_group_student" />
+      <nodes>
+        <classShapeMoniker Id="b5715ae1-79a4-42c6-a502-c5d295447b3a" />
+        <classShapeMoniker Id="1064b7d3-54de-4cfd-b6df-b3d3490745d9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.59396021294071); (2.94107443490112 : 5.78503464784183 : JumpStart); (3.05892556509888 : 5.90288577803958 : JumpEnd); (3.06607443490112 : 5.91003464784183 : JumpStart); (3.18392556509888 : 6.02788577803958 : JumpEnd); (3.1875 : 6.03146021294071); (3.1875 : 7.53929768880208); (3.5 : 7.53929768880208)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MusicDataClassesDataContext/student/student_individual_class" />
+      <nodes>
+        <classShapeMoniker Id="b5715ae1-79a4-42c6-a502-c5d295447b3a" />
+        <classShapeMoniker Id="2c12594c-3ee2-4286-b42d-c20af4420372" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 15.375); (2.625 : 14.0785953776042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MusicDataClassesDataContext/teacher/teacher_group" />
+      <nodes>
+        <classShapeMoniker Id="aa893cbd-ea73-4cde-b4f5-7741639435c1" />
+        <classShapeMoniker Id="7ee58932-ecdb-45a9-88e3-54dcac569865" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.75 : 16.2604484049479); (4.6250005 : 16.2604484049479); (4.6250005 : 8.32859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MusicDataClassesDataContext/teacher/teacher_individual_class" />
+      <nodes>
+        <classShapeMoniker Id="aa893cbd-ea73-4cde-b4f5-7741639435c1" />
+        <classShapeMoniker Id="2c12594c-3ee2-4286-b42d-c20af4420372" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 18.625); (2.875 : 17.1458968098958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MusicDataClassesDataContext/discipline/discipline_teacher" />
+      <nodes>
+        <classShapeMoniker Id="a449773e-15cd-4fa8-8416-5651e09e67ac" />
+        <classShapeMoniker Id="aa893cbd-ea73-4cde-b4f5-7741639435c1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.125 : 10.375); (2.125 : 9.0112939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MusicDataClassesDataContext/week_day/week_day_group_class" />
+      <nodes>
+        <classShapeMoniker Id="b1f6447c-5556-4cc2-abd7-9ee935eadb04" />
+        <classShapeMoniker Id="04938f85-fc1c-4cc3-91c4-9e4e2bcfaa00" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.90625 : 10.375); (2.90625 : 7.11339634440104); (2.91666666666667 : 7.11339634440104 : JumpStart); (3.27083333333333 : 7.11339634440104 : JumpEnd); (3.5 : 7.11339634440104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MusicDataClassesDataContext/week_day/week_day_individual_class" />
+      <nodes>
+        <classShapeMoniker Id="b1f6447c-5556-4cc2-abd7-9ee935eadb04" />
+        <classShapeMoniker Id="2c12594c-3ee2-4286-b42d-c20af4420372" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

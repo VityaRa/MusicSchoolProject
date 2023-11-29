@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="music" Class="MusicDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.discipline" Member="disciplines">
+    <Type Name="discipline">
+      <Column Name="disciplineID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="isIndividual" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="discipline_teacher" Member="teachers" ThisKey="disciplineID" OtherKey="disciplineID" Type="teacher" />
+    </Type>
+  </Table>
+  <Table Name="dbo.grade_perfomance" Member="grade_perfomances">
+    <Type Name="grade_perfomance">
+      <Column Name="studentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="gradeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="individual_classID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="group_classID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="grade_grade_perfomance" Member="grade" ThisKey="gradeID" OtherKey="gradeID" Type="grade" IsForeignKey="true" />
+      <Association Name="group_class_grade_perfomance" Member="group_class" ThisKey="group_classID" OtherKey="group_classID" Type="group_class" IsForeignKey="true" />
+      <Association Name="individual_class_grade_perfomance" Member="individual_class" ThisKey="individual_classID" OtherKey="individual_classID" Type="individual_class" IsForeignKey="true" />
+      <Association Name="student_grade_perfomance" Member="student" ThisKey="studentID" OtherKey="studentID" Type="student" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.grades" Member="grades">
+    <Type Name="grade">
+      <Column Name="gradeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="grade_grade_perfomance" Member="grade_perfomances" ThisKey="gradeID" OtherKey="gradeID" Type="grade_perfomance" />
+    </Type>
+  </Table>
+  <Table Name="dbo.group_class" Member="group_classes">
+    <Type Name="group_class">
+      <Column Name="group_classID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="groupID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="weekdayID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="group_class_grade_perfomance" Member="grade_perfomances" ThisKey="group_classID" OtherKey="group_classID" Type="grade_perfomance" />
+      <Association Name="group_group_class" Member="group" ThisKey="groupID" OtherKey="groupID" Type="group" IsForeignKey="true" />
+      <Association Name="week_day_group_class" Member="week_day" ThisKey="weekdayID" OtherKey="weekdayID" Type="week_day" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.group_student" Member="group_students">
+    <Type Name="group_student">
+      <Column Name="studentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="groupID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="group_group_student" Member="group" ThisKey="groupID" OtherKey="groupID" Type="group" IsForeignKey="true" />
+      <Association Name="student_group_student" Member="student" ThisKey="studentID" OtherKey="studentID" Type="student" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.groups" Member="groups">
+    <Type Name="group">
+      <Column Name="groupID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="teacherID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="admission_year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="group_group_class" Member="group_classes" ThisKey="groupID" OtherKey="groupID" Type="group_class" />
+      <Association Name="group_group_student" Member="group_students" ThisKey="groupID" OtherKey="groupID" Type="group_student" />
+      <Association Name="teacher_group" Member="teacher" ThisKey="teacherID" OtherKey="teacherID" Type="teacher" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.individual_class" Member="individual_classes">
+    <Type Name="individual_class">
+      <Column Name="individual_classID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="studentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="weekdayID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="teacherID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="individual_class_grade_perfomance" Member="grade_perfomances" ThisKey="individual_classID" OtherKey="individual_classID" Type="grade_perfomance" />
+      <Association Name="student_individual_class" Member="student" ThisKey="studentID" OtherKey="studentID" Type="student" IsForeignKey="true" />
+      <Association Name="teacher_individual_class" Member="teacher" ThisKey="teacherID" OtherKey="teacherID" Type="teacher" IsForeignKey="true" />
+      <Association Name="week_day_individual_class" Member="week_day" ThisKey="weekdayID" OtherKey="weekdayID" Type="week_day" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.student" Member="students">
+    <Type Name="student">
+      <Column Name="studentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="lastname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fathername" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="birthdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="admission_year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="student_grade_perfomance" Member="grade_perfomances" ThisKey="studentID" OtherKey="studentID" Type="grade_perfomance" />
+      <Association Name="student_group_student" Member="group_students" ThisKey="studentID" OtherKey="studentID" Type="group_student" />
+      <Association Name="student_individual_class" Member="individual_classes" ThisKey="studentID" OtherKey="studentID" Type="individual_class" />
+    </Type>
+  </Table>
+  <Table Name="dbo.teacher" Member="teachers">
+    <Type Name="teacher">
+      <Column Name="teacherID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="lastname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fathername" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="disciplineID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="teacher_group" Member="groups" ThisKey="teacherID" OtherKey="teacherID" Type="group" />
+      <Association Name="teacher_individual_class" Member="individual_classes" ThisKey="teacherID" OtherKey="teacherID" Type="individual_class" />
+      <Association Name="discipline_teacher" Member="discipline" ThisKey="disciplineID" OtherKey="disciplineID" Type="discipline" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.week_day" Member="week_days">
+    <Type Name="week_day">
+      <Column Name="weekdayID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="week_day_group_class" Member="group_classes" ThisKey="weekdayID" OtherKey="weekdayID" Type="group_class" />
+      <Association Name="week_day_individual_class" Member="individual_classes" ThisKey="weekdayID" OtherKey="weekdayID" Type="individual_class" />
+    </Type>
+  </Table>
+</Database>

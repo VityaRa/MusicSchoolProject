@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MusicSchoolProject", "MusicSchoolProject\", "{DD369DC8-6E97-4FD7-8A5E-B36D38080FBC}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_57921"
+		Debug.AspNetCompiler.PhysicalPath = "MusicSchoolProject\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57921\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_57921"
+		Release.AspNetCompiler.PhysicalPath = "MusicSchoolProject\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57921\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "57921"
+		SlnRelativePath = "MusicSchoolProject\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD369DC8-6E97-4FD7-8A5E-B36D38080FBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD369DC8-6E97-4FD7-8A5E-B36D38080FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F1876E7B-CF7E-454B-9216-E7A64280C3C2}
+	EndGlobalSection
+EndGlobal

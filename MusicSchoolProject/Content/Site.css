@@ -1,0 +1,10 @@
+﻿.auth-button {
+    padding: 0.5rem 1rem;
+    background: #fff;
+    outline: none;
+    border: unset;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    min-width: 100px;
+    transition: .3s;
+}
