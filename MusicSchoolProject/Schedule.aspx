@@ -37,7 +37,7 @@
             Выбор преподавателя
         </label>
         <asp:DropDownList AppendDataBoundItems="true" runat="server" DataSourceID="SqlTeacherList" ID="TeachersList" DataTextField="fullname" DataValueField="teacherID" AutoPostBack="True" OnSelectedIndexChanged="TeachersList_SelectedIndexChanged">
-            <asp:ListItem Selected="True" Value="-1">Все</asp:ListItem>
+            <asp:ListItem Selected="True" Value="0">Все</asp:ListItem>
         </asp:DropDownList>
 
         <asp:Button runat="server" Text="Очистить" OnClick="ClearButton_Click" ID="ClearButton">
@@ -54,7 +54,9 @@
         </SelectParameters>
     </asp:SqlDataSource>
 
-        <asp:GridView runat="server" AutoGenerateColumns="False" DataSourceID="WeekDayAndTeacher" ID="GridView1" AllowSorting="True">
+        <asp:GridView
+            emptydatatext="Занятия не найдены"
+            runat="server" AutoGenerateColumns="False" DataSourceID="WeekDayAndTeacher" ID="GridView1" AllowSorting="True">
             <Columns>
                 <asp:BoundField HeaderStyle-CssClass="header" ItemStyle-CssClass="item" DataField="week_day" HeaderText="День недели" SortExpression="week_day">
                     <ItemStyle Font-Bold="True"></ItemStyle>

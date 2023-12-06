@@ -9,80 +9,95 @@ using System.Web.UI.WebControls;
 
 public partial class SiteMaster : MasterPage
 {
-    private const string AntiXsrfTokenKey = "__AntiXsrfToken";
-    private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
-    private string _antiXsrfTokenValue;
-
-    private readonly Dictionary<string, string> Links = new Dictionary<string, string>()
+    private void onAuthorizedUser()
     {
-        { "Main", "~"},
-        { "Students", "~/About"},
-    };
-
-
-    protected void Page_Init(object sender, EventArgs e)
-    {
-        // The code below helps to protect against XSRF attacks
-        var requestCookie = Request.Cookies[AntiXsrfTokenKey];
-        Guid requestCookieGuidValue;
-        if (requestCookie != null && Guid.TryParse(requestCookie.Value, out requestCookieGuidValue))
-        {
-            // Use the Anti-XSRF token from the cookie
-            _antiXsrfTokenValue = requestCookie.Value;
-            Page.ViewStateUserKey = _antiXsrfTokenValue;
-        }
-        else
-        {
-            // Generate a new Anti-XSRF token and save to the cookie
-            _antiXsrfTokenValue = Guid.NewGuid().ToString("N");
-            Page.ViewStateUserKey = _antiXsrfTokenValue;
-
-            var responseCookie = new HttpCookie(AntiXsrfTokenKey)
-            {
-                HttpOnly = true,
-                Value = _antiXsrfTokenValue
-            };
-            if (FormsAuthentication.RequireSSL && Request.IsSecureConnection)
-            {
-                responseCookie.Secure = true;
-            }
-            Response.Cookies.Set(responseCookie);
-        }
-
-        Page.PreLoad += master_Page_PreLoad;
+        RegisterLinkButton.Visible = false;
+        LoginLinkButton.Visible = false;
     }
 
-    protected void master_Page_PreLoad(object sender, EventArgs e)
+    private void onAnonymousUser()
     {
-        if (!IsPostBack)
+        RegisterLinkButton.Visible = true;
+        LoginLinkButton.Visible = true;
+    }
+    private void GetNonAcceptableLinks(int userRoleId)
+    {
+        // TODO: get links based of user session role
+
+    }
+    private void HideLinks()
+    {
+        // get user role, invoke GetNonAcceptableLinks and map for elements and make Visible = false for links
+        var userRole = Convert.ToInt32(Session[SessionConsts.UserRoleId]);
+        if (userRole == 0)
         {
-            // Set Anti-XSRF token
-            ViewState[AntiXsrfTokenKey] = Page.ViewStateUserKey;
-            ViewState[AntiXsrfUserNameKey] = Context.User.Identity.Name ?? String.Empty;
+
         }
-        else
+    }
+
+    private void RemoveLinkButtonValidation()
+    {
+        MainLinkButton.CausesValidation = false;
+        ScheduleLinkButton.CausesValidation = false;
+        GradeLinkButton.CausesValidation = false;
+        GroupLinkButton.CausesValidation = false;
+        ApplicationsLinkButton.CausesValidation = false;
+        RegisterLinkButton.CausesValidation = false;
+        LoginLinkButton.CausesValidation = false;
+    }
+
+    private void HandleAuthorization()
+    {
+        var userRoleId = Convert.ToInt32(Session[SessionConsts.UserRoleId]);
+        if (userRoleId == 0)
         {
-            // Validate the Anti-XSRF token
-            if ((string)ViewState[AntiXsrfTokenKey] != _antiXsrfTokenValue
-                || (string)ViewState[AntiXsrfUserNameKey] != (Context.User.Identity.Name ?? String.Empty))
-            {
-                throw new InvalidOperationException("Validation of Anti-XSRF token failed.");
-            }
+            onAnonymousUser();
+        }
+        else 
+        {
+            onAuthorizedUser();
         }
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        RemoveLinkButtonValidation();
+        HideLinks();
+        HandleAuthorization();
     }
 
-    protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
+    protected void LinkButtonClick(object sender, EventArgs e)
     {
-        Context.GetOwinContext().Authentication.SignOut();
-    }
-
-    protected void Unnamed5_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
+        RegisterLinkButton.CausesValidation = false;
+        LinkButton button = (LinkButton)sender;
+        string buttonId = button.ID;
+        if (buttonId == MainLinkButton.ID)
+        {
+            Response.Redirect(Pages.DefaultPage);
+        }
+        if (buttonId == ScheduleLinkButton.ID)
+        {
+            Response.Redirect(Pages.SchedulePage);
+        }
+        if (buttonId == GradeLinkButton.ID)
+        {
+            Response.Redirect(Pages.GradesPage);
+        }
+        if (buttonId == GroupLinkButton.ID)
+        {
+            Response.Redirect(Pages.GroupsPage);
+        }
+        if (buttonId == ApplicationsLinkButton.ID)
+        {
+            Response.Redirect(Pages.ApplicationsPage);
+        }
+        if (buttonId == RegisterLinkButton.ID)
+        {
+            Response.Redirect(Pages.RegisterPage);
+        }
+        if (buttonId == LoginLinkButton.ID)
+        {
+            Response.Redirect(Pages.LoginPage);
+        }
     }
 }

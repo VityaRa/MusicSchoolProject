@@ -6,23 +6,25 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Твоя музыкалка</title>
-    <asp:contentPlaceholder id="head" runat="server" />
+    <title><%: Page.Title %> - <%: Consts.WebSiteTitle %></title>
+    <asp:ContentPlaceHolder ID="head" runat="server" />
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
     <style>
         p {
             margin-bottom: 0;
         }
+
         body {
             padding: 0;
             height: calc(100vh - 50px);
             overflow-y: scroll;
         }
+
         .navbar {
             background-color: #ffffff;
             box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -32,7 +34,7 @@
         .navbar-header {
             height: 48px;
         }
-        
+
         .logo-wrapper {
             height: 100%;
             display: flex;
@@ -40,7 +42,7 @@
             justify-content: center;
         }
 
-        .logo, .logo img{
+        .logo, .logo img {
             max-width: 4rem;
             max-height: 4rem;
         }
@@ -50,19 +52,17 @@
             transition: .3s;
         }
 
-        .link:hover {
-            transform: scale(1.05);
-            text-decoration: underline !important;
-        }
+            .link:hover {
+                transform: scale(1.05);
+                text-decoration: underline !important;
+            }
 
         .main-content {
             background-color: #f6f6f6;
             margin-top: 50px;
-            height: 100%;
         }
 
         .body-content {
-            height: 100%;
             margin: 0;
             padding: 36px 60px 0 60px;
             width: 100%;
@@ -70,8 +70,9 @@
 
         footer {
             padding: 15px;
+            background-color: #fff;
+            margin-top: 16px;
         }
-
     </style>
 </head>
 <body>
@@ -85,26 +86,36 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a class="link" runat="server" href="~/">Главная</a></li>
-                        <li><a class="link" runat="server" href="~/Schedule">Расписание</a></li>
-                        <li><a class="link" runat="server" href="~/Contact">Мероприятия</a></li>
+
+                        <li>
+                            <asp:LinkButton CssClass="link" ID="MainLinkButton" runat="server" OnClick="LinkButtonClick">Главная</asp:LinkButton>
+                        </li>
+                        <li>
+                            <asp:LinkButton CssClass="link" ID="ScheduleLinkButton" runat="server" OnClick="LinkButtonClick">Расписание</asp:LinkButton>
+                        </li>
+                        <li>
+                            <asp:LinkButton CssClass="link" ID="GradeLinkButton" runat="server" OnClick="LinkButtonClick">Оценки</asp:LinkButton>
+                        </li>
+                        <li>
+                            <asp:LinkButton CssClass="link" ID="GroupLinkButton" runat="server" OnClick="LinkButtonClick">Группы</asp:LinkButton>
+                        </li>
+                        <li>
+                            <asp:LinkButton CssClass="link" ID="ApplicationsLinkButton" runat="server" OnClick="LinkButtonClick">Заявки</asp:LinkButton>
+                        </li>
+<%--                        <li><a id="main_link" class="link" runat="server" href="~/">Главная</a></li>
+                        <li><a id="schedule_link" class="link" runat="server" href="~/Schedule">Расписание</a></li>
+                        <li><a id="grades_link" class="link" runat="server" href="~/Grades">Оценки</a></li>
+                        <li><a id="group_list_link" class="link" runat="server" href="~/GroupList">Группы</a></li>
+                        <li><a id="applications_link" class="link" runat="server" href="~/Applications">Заявки</a></li>--%>
                     </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a class="link" runat="server" href="~/Account/Register">Регистрация</a></li>
-                                <li><a class="link" runat="server" href="~/Account/Login">Вход</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a class="link" runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %>!</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <asp:LinkButton CssClass="link" ID="RegisterLinkButton" runat="server" OnClick="LinkButtonClick">Оставить заявку</asp:LinkButton>
+                        </li>
+                        <li>
+                            <asp:LinkButton CssClass="link" ID="LoginLinkButton" runat="server" OnClick="LinkButtonClick">Вход</asp:LinkButton>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -117,7 +128,8 @@
         </div>
         <footer>
             <div class="container center">
-                <p>&copy; <%: DateTime.Now.Year %> - Твоя музыкалка
+                <p>
+                    &copy; <%: DateTime.Now.Year %> - <%: Consts.WebSiteTitle %>
                 </p>
             </div>
 
