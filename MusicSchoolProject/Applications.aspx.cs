@@ -10,7 +10,6 @@ public partial class Applications : System.Web.UI.Page
     //TODO: add role logic
     protected void Page_Load(object sender, EventArgs e)
     {
-    
     }
 
     protected void ClearButton_Click(object sender, EventArgs e)
