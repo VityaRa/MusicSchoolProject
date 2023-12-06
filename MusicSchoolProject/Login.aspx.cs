@@ -21,9 +21,9 @@ public partial class Account_Login : Page
             GetUserByCredentialsResponse student = GetUserByCredentials(creds);
             if (student != null)
             {
-                Session["userRoleId"] = student.role;
-                Session["userName"] = student.name;
-                Response.Redirect("Schedule.aspx");
+                Session[SessionConsts.UserRoleId] = student.role;
+                Session[SessionConsts.UserName] = student.name;
+                Response.Redirect(Pages.SchedulePage);
             }
             else
             {

@@ -13,18 +13,18 @@ public partial class Schedule : System.Web.UI.Page
     }
     protected void WeekDayList_SelectedIndexChanged1(object sender, EventArgs e)
     {
-        Session["__selected_week_day"] = WeekDayList.SelectedValue;
+        Session[SessionConsts.SelectedWeekDay] = WeekDayList.SelectedValue;
     }
 
     protected void TeachersList_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Session["__selected_teacher_id"] = TeachersList.SelectedValue;
+        Session[SessionConsts.SelectedTeacherId] = TeachersList.SelectedValue;
     }
 
     protected void ClearButton_Click(object sender, EventArgs e)
     {
-        Session["__selected_teacher_id"] = 0;
-        Session["__selected_week_day"] = 0;
+        Session[SessionConsts.SelectedWeekDay] = 0;
+        Session[SessionConsts.SelectedTeacherId] = 0;
         TeachersList.ClearSelection();
         WeekDayList.ClearSelection();
     }

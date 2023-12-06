@@ -15,8 +15,8 @@ public partial class Applications : System.Web.UI.Page
 
     protected void ClearButton_Click(object sender, EventArgs e)
     {
-        Session["__selected_discipline_id"] = -1;
-        Session["__selected_application_status_id"] = -1;
+        Session[SessionConsts.SelectedDisciplineId] = -1;
+        Session[SessionConsts.SelectedApplicationStatusId] = -1;
 
         ApplicationStatuses.ClearSelection();
         DisciplinesList.ClearSelection();
@@ -25,18 +25,18 @@ public partial class Applications : System.Web.UI.Page
 
     protected void ApplicationStatuses_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Session["__selected_application_status_id"] = ApplicationStatuses.SelectedValue;
+        Session[SessionConsts.SelectedApplicationStatusId] = ApplicationStatuses.SelectedValue;
     }
 
     protected void DisciplinesList_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Session["__selected_discipline_id"] = DisciplinesList.SelectedValue;
+        Session[SessionConsts.SelectedDisciplineId] = DisciplinesList.SelectedValue;
     }
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
         int selectedApplicationId = Convert.ToInt32(GridView1.SelectedRow.Cells[1].Text);
-        Session["__selected_application_id"] = selectedApplicationId;
+        Session[SessionConsts.SelectedApplicationId] = selectedApplicationId;
         SelectedApplicationData.Visible = true;
     }
 
@@ -76,7 +76,7 @@ public partial class Applications : System.Web.UI.Page
     }
     protected void Accept_Click(object sender, EventArgs e)
     {
-        var applicationToAcceptId = Convert.ToInt32(Session["__selected_application_id"]);
+        var applicationToAcceptId = Convert.ToInt32(Session[SessionConsts.SelectedApplicationId]);
         var applicationToAccept = RequestHelper.GetApplicationByID(applicationToAcceptId);
         var userToCreate = ModelHelper.GetUserDataFromApplication(applicationToAccept);
         var createdStudentId = RequestHelper.CreateStudent(userToCreate);
@@ -99,7 +99,7 @@ public partial class Applications : System.Web.UI.Page
 
     private void HideActiveApplication ()
     {
-        Session["__selected_application_id"] = -1;
+        Session[SessionConsts.SelectedApplicationId] = -1;
         SelectedApplicationData.Visible = false;
     }
     protected void Cancel_Click(object sender, EventArgs e)
