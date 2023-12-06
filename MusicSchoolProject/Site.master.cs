@@ -13,26 +13,68 @@ public partial class SiteMaster : MasterPage
     {
         RegisterLinkButton.Visible = false;
         LoginLinkButton.Visible = false;
+        WelcomeMessage.Visible = true;
+        WelcomeMessage.Text = "Добро пожаловать, " + Session[SessionConsts.UserName] + "!";
+        LogoutLinkButton.Visible = true;
+    }
+
+    private void onLogout()
+    {
+        Session.Clear();
     }
 
     private void onAnonymousUser()
     {
         RegisterLinkButton.Visible = true;
         LoginLinkButton.Visible = true;
+        WelcomeMessage.Visible = false;
+        LogoutLinkButton.Visible = false;
     }
-    private void GetNonAcceptableLinks(int userRoleId)
+    private List<LinkButton> GetNonAcceptableLinks(int userRoleId)
     {
-        // TODO: get links based of user session role
+        if (userRoleId == 0)
+        {
+            return new List<LinkButton>
+            {
+                GradeLinkButton,
+                ApplicationsLinkButton,
+                GroupLinkButton,
+            };
+        }
+        if (userRoleId == 1)
+        {
+            return new List<LinkButton>
+            {
+                ApplicationsLinkButton,
+                GroupLinkButton,
+            };
+        }
+        if (userRoleId == 2)
+        {
+            return new List<LinkButton>
+            {
+                ApplicationsLinkButton,
+            };
+        }
+        return new List<LinkButton> {};
+    }
 
+    private int GetRole()
+    {
+        try
+        {
+            return Convert.ToInt32(Session[SessionConsts.UserRoleId]);
+        }
+        catch
+        {
+            return 0;
+        }
     }
     private void HideLinks()
     {
-        // get user role, invoke GetNonAcceptableLinks and map for elements and make Visible = false for links
-        var userRole = Convert.ToInt32(Session[SessionConsts.UserRoleId]);
-        if (userRole == 0)
-        {
-
-        }
+        var roleId = GetRole();
+        var hideLinks = GetNonAcceptableLinks(roleId);
+        hideLinks.ForEach(link => link.Visible = false);
     }
 
     private void RemoveLinkButtonValidation()
@@ -48,12 +90,12 @@ public partial class SiteMaster : MasterPage
 
     private void HandleAuthorization()
     {
-        var userRoleId = Convert.ToInt32(Session[SessionConsts.UserRoleId]);
+        var userRoleId = GetRole();
         if (userRoleId == 0)
         {
             onAnonymousUser();
         }
-        else 
+        else
         {
             onAuthorizedUser();
         }
@@ -98,6 +140,11 @@ public partial class SiteMaster : MasterPage
         if (buttonId == LoginLinkButton.ID)
         {
             Response.Redirect(Pages.LoginPage);
+        }
+        if (buttonId == LogoutLinkButton.ID)
+        {
+            onLogout();
+            Response.Redirect(Pages.DefaultPage);
         }
     }
 }

@@ -73,6 +73,16 @@
             background-color: #fff;
             margin-top: 16px;
         }
+
+        .link.danger {
+            color: red !important;
+        }
+
+        .welcome {
+            display: flex;
+            align-items: center;
+            height: 50px;
+        }
     </style>
 </head>
 <body>
@@ -86,7 +96,6 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-
                         <li>
                             <asp:LinkButton CssClass="link" ID="MainLinkButton" runat="server" OnClick="LinkButtonClick">Главная</asp:LinkButton>
                         </li>
@@ -102,11 +111,6 @@
                         <li>
                             <asp:LinkButton CssClass="link" ID="ApplicationsLinkButton" runat="server" OnClick="LinkButtonClick">Заявки</asp:LinkButton>
                         </li>
-<%--                        <li><a id="main_link" class="link" runat="server" href="~/">Главная</a></li>
-                        <li><a id="schedule_link" class="link" runat="server" href="~/Schedule">Расписание</a></li>
-                        <li><a id="grades_link" class="link" runat="server" href="~/Grades">Оценки</a></li>
-                        <li><a id="group_list_link" class="link" runat="server" href="~/GroupList">Группы</a></li>
-                        <li><a id="applications_link" class="link" runat="server" href="~/Applications">Заявки</a></li>--%>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -114,6 +118,14 @@
                         </li>
                         <li>
                             <asp:LinkButton CssClass="link" ID="LoginLinkButton" runat="server" OnClick="LinkButtonClick">Вход</asp:LinkButton>
+                        </li>
+                        <li>
+                            <p class="welcome">
+                                <asp:Literal Visible="false" ID="WelcomeMessage" runat="server" />
+                            </p>
+                        </li>
+                        <li>
+                            <asp:LinkButton CssClass="link danger" Visible="false" OnClick="LinkButtonClick" ID="LogoutLinkButton" runat="server" Text="Выйти" />
                         </li>
                     </ul>
                 </div>

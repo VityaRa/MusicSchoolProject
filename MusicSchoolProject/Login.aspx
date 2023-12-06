@@ -49,14 +49,6 @@
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="Поле пароля обязательно для заполнения." />
                         </div>
                     </div>
-<%--                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <div class="checkbox">
-                                <asp:CheckBox runat="server" ID="RememberMe" />
-                                <asp:Label runat="server" AssociatedControlID="RememberMe">Запомнить меня?</asp:Label>
-                            </div>
-                        </div>
-                    </div>--%>
                     <div class="form-group">
                         <div class="col-md-10">
                             <asp:Button runat="server" OnClick="LogIn" Text="Войти" CssClass="btn btn-default auth-button" />

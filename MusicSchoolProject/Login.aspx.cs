@@ -10,7 +10,7 @@ public partial class Account_Login : Page
 
     protected void LogIn(object sender, EventArgs e)
     {
-        if (IsValid)
+        if (IsValid && IsPostBack)
         {
             var creds = new Credentials()
             {
@@ -21,7 +21,7 @@ public partial class Account_Login : Page
             GetUserByCredentialsResponse student = GetUserByCredentials(creds);
             if (student != null)
             {
-                Session[SessionConsts.UserRoleId] = student.role;
+                Session[SessionConsts.UserRoleId] = student.roleId;
                 Session[SessionConsts.UserName] = student.name;
                 Response.Redirect(Pages.SchedulePage);
             }

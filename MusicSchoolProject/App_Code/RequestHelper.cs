@@ -156,7 +156,7 @@ public class RequestHelper
 
     public class GetUserByCredentialsResponse
     {
-        public Roles role { get; set; }
+        public int roleId { get; set; }
         public string name { get; set; }
     }
 
@@ -271,7 +271,7 @@ public class RequestHelper
             {
                 return new GetUserByCredentialsResponse
                 {
-                    role = Roles.Admin,
+                    roleId = (int)Roles.Admin,
                     name = "Admin",
                 };
             }
@@ -285,7 +285,7 @@ public class RequestHelper
             Student student = GetFullNameById(credentials.userId, tableType);
             return new GetUserByCredentialsResponse
             {
-                role = (Roles)credentials.roleId,
+                roleId = credentials.roleId,
                 name = student.name,
             };
         }
