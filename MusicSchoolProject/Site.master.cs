@@ -115,7 +115,7 @@ public partial class SiteMaster : MasterPage
         string currentPage = System.IO.Path.GetFileName(Request.Url.AbsolutePath); // Получаем имя текущей страницы
 
         // Проверяем, есть ли у пользователя доступ к текущей странице
-        if (!rolePageAccess.ContainsKey(userRoleId) || !rolePageAccess[userRoleId].Contains(currentPage))
+        if (!rolePageAccess.ContainsKey(userRoleId) || !rolePageAccess[userRoleId].Contains(currentPage) && userRoleId != 3)
         {
             Response.Redirect(Pages.DefaultPage);
             Response.End();
