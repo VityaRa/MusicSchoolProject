@@ -16,4 +16,5 @@ public class Pages
     public static string ApplicationsPage = "Applications.aspx";
     public static string RegisterPage = "Register.aspx";
     public static string LoginPage = "Login.aspx";
+    public static string PersonalPage = "Personal.aspx";
 }

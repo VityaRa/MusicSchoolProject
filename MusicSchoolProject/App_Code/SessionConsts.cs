@@ -5,6 +5,7 @@ public class SessionConsts
 {
     public static string UserRoleId = "userRoleId";
     public static string UserName = "userName";
+    public static string UserId = "userId";
     public static string SelectedWeekDay = "__selected_week_day";
     public static string SelectedTeacherId = "__selected_teacher_id";
     public static string SelectedDisciplineId = "__selected_discipline_id";

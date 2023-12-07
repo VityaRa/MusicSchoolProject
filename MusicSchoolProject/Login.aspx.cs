@@ -23,6 +23,8 @@ public partial class Account_Login : Page
             {
                 Session[SessionConsts.UserRoleId] = student.roleId;
                 Session[SessionConsts.UserName] = student.name;
+                Session[SessionConsts.UserId] = student.userId;
+                
                 Response.Redirect(Pages.SchedulePage);
             }
             else

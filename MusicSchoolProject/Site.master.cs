@@ -12,8 +12,8 @@ public partial class SiteMaster : MasterPage
     private Dictionary<int, List<string>> rolePageAccess = new Dictionary<int, List<string>>
     {
         { 0, new List<string> { Pages.DefaultPage, Pages.SchedulePage, Pages.LoginPage, Pages.RegisterPage } },
-        { 1, new List<string> { Pages.DefaultPage, Pages.SchedulePage, Pages.GradesPage } },
-        { 2, new List<string> { Pages.DefaultPage, Pages.SchedulePage, Pages.GradesPage, Pages.GroupsPage } },
+        { 1, new List<string> { Pages.DefaultPage, Pages.SchedulePage, Pages.GradesPage, Pages.PersonalPage } },
+        { 2, new List<string> { Pages.DefaultPage, Pages.SchedulePage, Pages.GradesPage, Pages.GroupsPage, Pages.PersonalPage } },
         { 3, new List<string> {  } },
     };
 
@@ -24,27 +24,28 @@ public partial class SiteMaster : MasterPage
         WelcomeMessage.Visible = true;
         WelcomeMessage.Text = "Добро пожаловать, " + Session[SessionConsts.UserName] + "!";
         LogoutLinkButton.Visible = true;
+        PersonalDataLinkButton.Visible = true;
     }
-
-    private void onLogout()
-    {
-        Session.Clear();
-    }
-
     private void onAnonymousUser()
     {
         RegisterLinkButton.Visible = true;
         LoginLinkButton.Visible = true;
         WelcomeMessage.Visible = false;
         LogoutLinkButton.Visible = false;
+        PersonalDataLinkButton.Visible = false;
     }
+    private void onLogout()
+    {
+        Session.Clear();
+    }
+
+
     private List<LinkButton> GetNonAcceptableLinks(int userRoleId)
     {
         if (userRoleId == 0)
         {
             return new List<LinkButton>
             {
-                GradeLinkButton,
                 ApplicationsLinkButton,
                 GroupLinkButton,
             };
@@ -64,7 +65,9 @@ public partial class SiteMaster : MasterPage
                 ApplicationsLinkButton,
             };
         }
-        return new List<LinkButton> {};
+        return new List<LinkButton> {
+            PersonalDataLinkButton
+        };
     }
 
     private int GetRole()
@@ -89,7 +92,6 @@ public partial class SiteMaster : MasterPage
     {
         MainLinkButton.CausesValidation = false;
         ScheduleLinkButton.CausesValidation = false;
-        GradeLinkButton.CausesValidation = false;
         GroupLinkButton.CausesValidation = false;
         ApplicationsLinkButton.CausesValidation = false;
         RegisterLinkButton.CausesValidation = false;
@@ -121,12 +123,18 @@ public partial class SiteMaster : MasterPage
             Response.End();
         }
     }
+
+    private void DEBUG_ROLE(int role)
+    {
+        Session[SessionConsts.UserRoleId] = role;
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
+        //DEBUG_ROLE(2);
         CheckPageAccess();
         RemoveLinkButtonValidation();
-        HideLinks();
         HandleAuthorization();
+        HideLinks();
     }
 
     protected void LinkButtonClick(object sender, EventArgs e)
@@ -141,10 +149,6 @@ public partial class SiteMaster : MasterPage
         if (buttonId == ScheduleLinkButton.ID)
         {
             Response.Redirect(Pages.SchedulePage);
-        }
-        if (buttonId == GradeLinkButton.ID)
-        {
-            Response.Redirect(Pages.GradesPage);
         }
         if (buttonId == GroupLinkButton.ID)
         {
@@ -166,6 +170,11 @@ public partial class SiteMaster : MasterPage
         {
             onLogout();
             Response.Redirect(Pages.DefaultPage);
+        }
+        if (buttonId == PersonalDataLinkButton.ID)
+        {
+            var redirectUrl = Utils.MakePersonalPageRedirect(Convert.ToInt32(Session[SessionConsts.UserId]));
+            Response.Redirect(redirectUrl);
         }
     }
 }

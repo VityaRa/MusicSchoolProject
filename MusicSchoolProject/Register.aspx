@@ -87,7 +87,8 @@
         </div>
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="InstumentDisciplinesList" CssClass="col-md-2 control-label">Инструмент*</asp:Label>
-            <asp:DropDownList runat="server" DataSourceID="GetInstumentDisciplines" ID="InstumentDisciplinesList" DataTextField="name" DataValueField="disciplineID"></asp:DropDownList><asp:SqlDataSource runat="server" ID="GetInstumentDisciplines" ConnectionString="<%$ ConnectionStrings:musicConnectionString %>" SelectCommand="SELECT * FROM [discipline] WHERE ([isIndividual] = @isIndividual)">
+            <asp:DropDownList runat="server" DataSourceID="GetInstumentDisciplines" ID="InstumentDisciplinesList" DataTextField="name" DataValueField="disciplineID"></asp:DropDownList>
+            <asp:SqlDataSource runat="server" ID="GetInstumentDisciplines" ConnectionString="<%$ ConnectionStrings:musicConnectionString %>" SelectCommand="SELECT * FROM [discipline] WHERE ([isIndividual] = @isIndividual)">
                 <SelectParameters>
                     <asp:Parameter DefaultValue="true" Name="isIndividual" Type="Boolean"></asp:Parameter>
                 </SelectParameters>

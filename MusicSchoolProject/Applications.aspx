@@ -23,7 +23,7 @@
         .accept {
             background: green !important;
         }
-        .danger {
+        .danger-btn {
             background: red !important;
         }
 
@@ -87,7 +87,7 @@
             </asp:DetailsView>
             <div class="btn-wrapper">
                 <asp:Button CssClass="auth-button accept" runat="server" Text="Принять" ID="Accept" OnClick="Accept_Click"></asp:Button>
-                <asp:Button CssClass="auth-button danger" runat="server" Text="Отклонить" ID="Button1" OnClick="Reject_Click"></asp:Button>
+                <asp:Button CssClass="auth-button danger-btn" runat="server" Text="Отклонить" ID="Button1" OnClick="Reject_Click"></asp:Button>
                 <asp:Button CssClass="auth-button cancel" runat="server" Text="Закрыть" ID="Cancel" OnClick="Cancel_Click"></asp:Button>
             </div>
         </div>

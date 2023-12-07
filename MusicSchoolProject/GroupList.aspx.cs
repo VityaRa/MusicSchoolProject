@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,4 +12,13 @@ public partial class GroupList : System.Web.UI.Page
     {
 
     }
+
+    protected void GroupsGridView_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string selectedGroupID = GroupsGridView.SelectedDataKey["groupID"].ToString();
+        GetStudentsListByGroupId.SelectParameters["groupID"].DefaultValue = selectedGroupID;
+        StudentsList.Visible = true;
+        StudentsList.DataBind();
+    }
+
 }

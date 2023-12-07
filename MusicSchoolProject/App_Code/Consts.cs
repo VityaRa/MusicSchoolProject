@@ -21,7 +21,4 @@ public static class Consts
         Accepted = 2,
         Rejected = 3,
     }
-
-    public static string AdminEmail = "admin@gmail.com";
-    public static string AdminPassword = "123123";
 }

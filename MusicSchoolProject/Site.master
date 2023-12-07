@@ -66,6 +66,7 @@
             margin: 0;
             padding: 36px 60px 0 60px;
             width: 100%;
+            min-height: 100vh;
         }
 
         footer {
@@ -103,9 +104,6 @@
                             <asp:LinkButton CssClass="link" ID="ScheduleLinkButton" runat="server" OnClick="LinkButtonClick">Расписание</asp:LinkButton>
                         </li>
                         <li>
-                            <asp:LinkButton CssClass="link" ID="GradeLinkButton" runat="server" OnClick="LinkButtonClick">Оценки</asp:LinkButton>
-                        </li>
-                        <li>
                             <asp:LinkButton CssClass="link" ID="GroupLinkButton" runat="server" OnClick="LinkButtonClick">Группы</asp:LinkButton>
                         </li>
                         <li>
@@ -118,6 +116,9 @@
                         </li>
                         <li>
                             <asp:LinkButton CssClass="link" ID="LoginLinkButton" runat="server" OnClick="LinkButtonClick">Вход</asp:LinkButton>
+                        </li>
+                        <li>
+                            <asp:LinkButton CssClass="link" Visible="false" OnClick="LinkButtonClick" ID="PersonalDataLinkButton" runat="server" Text="Персональная информация" />
                         </li>
                         <li>
                             <p class="welcome">

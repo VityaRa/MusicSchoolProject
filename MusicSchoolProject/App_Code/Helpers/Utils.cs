@@ -13,4 +13,8 @@ public class Utils
         return student.name + " " + student.lastname + " " + student.fathername;
     }
 
+    public static string MakePersonalPageRedirect(int userId)
+    {
+        return Pages.PersonalPage + "?" + SessionConsts.UserId + "=" + userId;
+    }
 }

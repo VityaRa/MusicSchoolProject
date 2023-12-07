@@ -158,6 +158,8 @@ public class RequestHelper
     {
         public int roleId { get; set; }
         public string name { get; set; }
+        public int userId { get; set; }
+
     }
 
     public static Credentials GetCredentials(string email, string password)
@@ -249,6 +251,7 @@ public class RequestHelper
                             name = reader["name"].ToString(),
                             lastname = reader["lastname"].ToString(),
                             fathername = reader["fathername"].ToString(),
+                            studentID = Convert.ToInt32(reader[tableMeta.idField]),
                         };
                     }
                 }
@@ -273,6 +276,7 @@ public class RequestHelper
                 {
                     roleId = (int)Roles.Admin,
                     name = "Admin",
+                    userId = -1,
                 };
             }
 
@@ -287,6 +291,7 @@ public class RequestHelper
             {
                 roleId = credentials.roleId,
                 name = student.name,
+                userId = student.studentID
             };
         }
         catch
