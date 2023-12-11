@@ -11,9 +11,9 @@ public partial class SiteMaster : MasterPage
 {
     private Dictionary<int, List<string>> rolePageAccess = new Dictionary<int, List<string>>
     {
-        { 0, new List<string> { Pages.DefaultPage, Pages.SchedulePage, Pages.LoginPage, Pages.RegisterPage } },
-        { 1, new List<string> { Pages.DefaultPage, Pages.SchedulePage, Pages.GradesPage, Pages.PersonalPage } },
-        { 2, new List<string> { Pages.DefaultPage, Pages.SchedulePage, Pages.GradesPage, Pages.GroupsPage, Pages.PersonalPage } },
+        { 0, new List<string> { Pages.DefaultPage, Pages.SchedulePage, Pages.LoginPage, Pages.RegisterPage, Pages.EventsListPage } },
+        { 1, new List<string> { Pages.DefaultPage, Pages.SchedulePage, Pages.GradesPage, Pages.PersonalPage, Pages.EventsListPage } },
+        { 2, new List<string> { Pages.DefaultPage, Pages.SchedulePage, Pages.GradesPage, Pages.GroupsPage, Pages.PersonalPage, Pages.EventsListPage } },
         { 3, new List<string> {  } },
     };
 
@@ -63,6 +63,7 @@ public partial class SiteMaster : MasterPage
             return new List<LinkButton>
             {
                 ApplicationsLinkButton,
+                PersonalDataLinkButton,
             };
         }
         return new List<LinkButton> {
@@ -175,6 +176,10 @@ public partial class SiteMaster : MasterPage
         {
             var redirectUrl = Utils.MakePersonalPageRedirect(Convert.ToInt32(Session[SessionConsts.UserId]));
             Response.Redirect(redirectUrl);
+        }
+        if (buttonId == EventsLinkButton.ID)
+        {
+            Response.Redirect(Pages.EventsListPage);
         }
     }
 }

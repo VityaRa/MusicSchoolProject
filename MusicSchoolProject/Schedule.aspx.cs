@@ -21,6 +21,12 @@ public partial class Schedule : System.Web.UI.Page
         Session[SessionConsts.SelectedTeacherId] = TeachersList.SelectedValue;
     }
 
+    protected void StartTimeDropDown_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GetGroups.SelectParameters["__selected_start_time"].DefaultValue = StartTimeDropDown.SelectedValue;
+    }
+
+
     protected void ClearButton_Click(object sender, EventArgs e)
     {
         Session[SessionConsts.SelectedWeekDay] = 0;

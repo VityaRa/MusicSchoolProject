@@ -104,6 +104,9 @@
                             <asp:LinkButton CssClass="link" ID="ScheduleLinkButton" runat="server" OnClick="LinkButtonClick">Расписание</asp:LinkButton>
                         </li>
                         <li>
+                            <asp:LinkButton CssClass="link" ID="EventsLinkButton" runat="server" OnClick="LinkButtonClick">Мероприятия</asp:LinkButton>
+                        </li>
+                        <li>
                             <asp:LinkButton CssClass="link" ID="GroupLinkButton" runat="server" OnClick="LinkButtonClick">Группы</asp:LinkButton>
                         </li>
                         <li>
