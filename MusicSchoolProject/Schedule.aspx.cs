@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,7 +9,6 @@ public partial class Schedule : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
     }
     protected void WeekDayList_SelectedIndexChanged1(object sender, EventArgs e)
     {
@@ -23,7 +22,7 @@ public partial class Schedule : System.Web.UI.Page
 
     protected void StartTimeDropDown_SelectedIndexChanged(object sender, EventArgs e)
     {
-        GetGroups.SelectParameters["__selected_start_time"].DefaultValue = StartTimeDropDown.SelectedValue;
+        WeekDayAndTeacher.SelectParameters["__selected_start_time"].DefaultValue = StartTimeDropDown.SelectedValue;
     }
 
 
@@ -33,5 +32,8 @@ public partial class Schedule : System.Web.UI.Page
         Session[SessionConsts.SelectedTeacherId] = 0;
         TeachersList.ClearSelection();
         WeekDayList.ClearSelection();
+        StartTimeDropDown.ClearSelection();
+        WeekDayAndTeacher.SelectParameters["__selected_start_time"].DefaultValue = "00:00:00";
     }
+
 }
