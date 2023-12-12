@@ -300,4 +300,23 @@ public class RequestHelper
         }
 
     }
+
+    public static void AddStudentByIdToEvent(int studentId, int eventId)
+    {
+        using (SqlConnection connection = DbManager.GetConnection())
+        {
+            connection.Open();
+
+            string insertQuery = "INSERT INTO events_student (student_id, event_id) " +
+                                "VALUES (@student_id, @event_id);";
+
+            using (SqlCommand command = new SqlCommand(insertQuery, connection))
+            {
+                command.Parameters.AddWithValue("@student_id", studentId);
+                command.Parameters.AddWithValue("@event_id", eventId);
+
+                command.ExecuteNonQuery();
+            }
+        }
+    }
 }
